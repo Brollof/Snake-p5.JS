@@ -19,11 +19,11 @@ class Snake {
     this.x += this.dx;
     this.y += this.dy;
 
-    if (this.x > this.max)
+    if (this.x >= this.max)
       this.x = 0;
     else if(this.x < 0)
       this.x = this.max;
-    else if (this.y > this.max)
+    else if (this.y >= this.max)
       this.y = 0;
     else if (this.y < 0)
       this.y = this.max;

@@ -17,7 +17,6 @@ function setup()
 function draw()
 {
   background(0);
-  food.draw();
 
   snake.move();
   snake.draw();
@@ -25,6 +24,7 @@ function draw()
     snake.len++;
     food.newPos();
   }
+  food.draw();
 }
 
 function keyPressed()
