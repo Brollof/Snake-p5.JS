@@ -4,24 +4,31 @@ let grid = boardSize / 20;
 
 let snake;
 let food;
+let settings;
 
 function setup()
 {
   createCanvas(boardSize, boardSize);
+  createP('Settings:');
   setFrameRate(10);
 
+  settings = new Settings();
   snake = new Snake(4, grid);
   food = new Food(grid);
+
+  set_Immortal = createCheckbox("immortality", settings.immortal);
+  set_Immortal.changed(immortalChanged);
 }
 
 function draw()
 {
   background(0);
 
+  snake.updateSettings(settings);
   snake.move();
   snake.draw();
   if (snake.isMealTime(food) == true) {
-    snake.len++;
+    snake.currentLen++;
     food.newPos();
   }
   food.draw();
@@ -50,6 +57,6 @@ function keyPressed()
   }
 }
 
-function mousePressed() {
-  food.newPos();
+function immortalChanged() {
+  settings.immortal = this.checked();
 }
