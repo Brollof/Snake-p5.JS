@@ -17,7 +17,9 @@ function setup()
   food = new Food(grid);
 
   set_Immortal = createCheckbox("immortality", settings.immortal);
-  set_Immortal.changed(immortalChanged);
+  set_Immortal.changed(() => {
+    settings.immortal = this.checked();
+  });
 }
 
 function draw()
