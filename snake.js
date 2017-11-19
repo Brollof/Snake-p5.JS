@@ -37,11 +37,10 @@ class Snake {
   draw() {
     rectMode(CENTER);
     fill(0, 255, 0);
-    for(let i=0; i<this.tail.length; i++) {
+    for (let i=0; i<this.tail.length; i++) {
       let x = this.tail[i].x * this.grid + this.grid / 2;
       let y = this.tail[i].y * this.grid + this.grid / 2;
-      let size = this.grid - offset;
-      rect(x, y, size, size);
+      rect(x, y, this.size, this.size);
     }
   }
 
@@ -60,15 +59,15 @@ class Food {
     this.grid = gridSize;
     this.max = width / this.grid;
     this.min = 0; 
+    this.size = this.grid - offset;
   }
 
   draw() {
     let x = this.x * this.grid + this.grid / 2;
     let y = this.y * this.grid + this.grid / 2;
-    let size = this.grid - offset;
     rectMode(CENTER);
     fill(255, 0, 0);
-    rect(x, y, size, size);
+    rect(x, y, this.size, this.size);
   }
 
   newPos() {
