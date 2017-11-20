@@ -2,6 +2,7 @@
   <head>
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
     <!-- <style> body {padding: 0; margin: 0;} </style> -->
+    <link rel="stylesheet" href="main.css?v={random number/string}" type="text/css">
     <script src="p5.min.js"></script>
     <script src="p5.dom.min.js"></script>
     <script src="sketch.js"></script>
@@ -9,5 +10,17 @@
     <script src="snake.js"></script>
   </head>
   <body>
+    <div id="sketch">
+      <!-- p5 Sketch -->
+    </div>
+    
+    <div class="score">
+      <span>Score:</span>
+      <span id="scoreValue">0</span>
+    </div>
+
+    <p class="settings">Settings:</p>
+      <!-- DOM elements added using p5 -->
   </body>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </html>

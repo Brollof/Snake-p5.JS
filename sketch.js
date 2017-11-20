@@ -6,10 +6,13 @@ let snake;
 let food;
 let settings;
 
+let score;
+
 function setup()
 {
-  createCanvas(boardSize, boardSize);
-  createP('Settings:');
+  let canvas = createCanvas(boardSize, boardSize);
+  canvas.parent("sketch");
+
   setFrameRate(10);
 
   settings = new Settings();
@@ -20,12 +23,15 @@ function setup()
   set_Immortal.changed(function() {
     settings.immortal = this.checked();
   });
+
+  score = $('#scoreValue');
 }
 
 function draw()
 {
   background(0);
 
+  score.html((snake.currentLen - snake.len) * 10);
   snake.updateSettings(settings);
   snake.move();
   snake.draw();
